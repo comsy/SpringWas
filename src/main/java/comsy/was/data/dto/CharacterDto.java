@@ -1,8 +1,8 @@
-package comsy.was.dto;
+package comsy.was.data.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import comsy.was.domain.Character;
-import comsy.was.dtomapper.CharacterMapper;
+import comsy.was.data.domain.Character;
+import comsy.was.data.dtomapper.CharacterMapper;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

@@ -1,6 +1,6 @@
 package comsy.was.api;
 
-import comsy.was.dto.UserDto;
+import comsy.was.data.dto.UserDto;
 import lombok.*;
 
 import javax.validation.constraints.NotNull;

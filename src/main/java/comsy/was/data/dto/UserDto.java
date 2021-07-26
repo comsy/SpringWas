@@ -1,10 +1,8 @@
-package comsy.was.dto;
+package comsy.was.data.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import comsy.was.domain.Character;
-import comsy.was.domain.User;
-import comsy.was.dtomapper.CharacterMapper;
-import comsy.was.dtomapper.UserMapper;
+import comsy.was.data.domain.User;
+import comsy.was.data.dtomapper.UserMapper;
 import lombok.*;
 
 import java.io.Serializable;

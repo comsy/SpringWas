@@ -1,9 +1,9 @@
 package comsy.was.service;
 
 import comsy.was.configuration.FluentdConfiguration;
-import comsy.was.dao.CharacterDaoService;
-import comsy.was.domain.Character;
-import comsy.was.dto.CharacterDto;
+import comsy.was.data.dao.CharacterDaoService;
+import comsy.was.data.domain.Character;
+import comsy.was.data.dto.CharacterDto;
 import comsy.was.exception.BusinessException;
 import comsy.was.exception.ErrorCode;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,6 @@
-package comsy.was.repository;
+package comsy.was.data.repository;
 
-import comsy.was.domain.Character;
+import comsy.was.data.domain.Character;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

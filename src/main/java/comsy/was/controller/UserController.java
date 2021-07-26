@@ -2,11 +2,11 @@ package comsy.was.controller;
 
 import comsy.was.api.CharacterFindApi;
 import comsy.was.api.CharacterFindOneApi;
-import comsy.was.dao.UserDaoService;
-import comsy.was.domain.User;
+import comsy.was.data.dao.UserDaoService;
+import comsy.was.data.domain.User;
 import comsy.was.api.UserFindApi;
-import comsy.was.dto.CharacterDto;
-import comsy.was.dto.UserDto;
+import comsy.was.data.dto.CharacterDto;
+import comsy.was.data.dto.UserDto;
 import comsy.was.exception.BusinessException;
 import comsy.was.exception.ErrorCode;
 import comsy.was.service.CharacterService;

@@ -1,4 +1,4 @@
-package comsy.was.dtomapper;
+package comsy.was.data.dtomapper;
 
 import org.mapstruct.*;
 

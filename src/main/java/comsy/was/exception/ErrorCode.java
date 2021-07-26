@@ -18,7 +18,7 @@ public enum ErrorCode {
     //== BUSINESS ERROR (1000 ~ ) ==//
 
     // Member
-    USER_NOT_EXIST(      1000,   "User is not exist."),
+    USER_NOT_EXIST(         1000,   "User is not exist."),
     LOGIN_INPUT_INVALID(    1001,   "Login input is invalid"),
 
     // CHARACTER

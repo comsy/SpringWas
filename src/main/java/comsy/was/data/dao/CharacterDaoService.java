@@ -1,8 +1,8 @@
-package comsy.was.dao;
+package comsy.was.data.dao;
 
-import comsy.was.domain.Character;
-import comsy.was.dto.CharacterDto;
-import comsy.was.repository.CharacterRepository;
+import comsy.was.data.domain.Character;
+import comsy.was.data.dto.CharacterDto;
+import comsy.was.data.repository.CharacterRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;

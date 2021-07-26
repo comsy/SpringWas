@@ -1,6 +1,6 @@
 package comsy.was.api;
 
-import comsy.was.dto.CharacterDto;
+import comsy.was.data.dto.CharacterDto;
 import lombok.Getter;
 
 import javax.validation.constraints.NotNull;

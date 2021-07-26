@@ -1,7 +1,7 @@
-package comsy.was.dtomapper;
+package comsy.was.data.dtomapper;
 
-import comsy.was.domain.Character;
-import comsy.was.dto.CharacterDto;
+import comsy.was.data.domain.Character;
+import comsy.was.data.dto.CharacterDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

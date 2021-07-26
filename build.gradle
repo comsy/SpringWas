@@ -25,19 +25,27 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-aop'
+
+    // P6spy
     implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.7.1'
+    // SENTRY
     implementation 'io.sentry:sentry-spring-boot-starter:5.0.1'
     implementation 'io.sentry:sentry-logback:5.0.1'
+    // GSON
     implementation 'com.google.code.gson:gson:2.8.7'
+    // GSON SIMPLE
     implementation 'com.googlecode.json-simple:json-simple:1.1.1'
 
+    // fluentd
     implementation 'com.sndyuk:logback-more-appenders:1.8.6'
     implementation "org.komamitsu:fluency-core:2.6.0"
     implementation "org.komamitsu:fluency-fluentd:2.6.0"
 
+    // lombok, mapstruct
     implementation 'org.mapstruct:mapstruct:1.4.2.Final'
     compileOnly 'org.projectlombok:lombok'
 
+    // lombok 과 mapstruct 순서 중요함(builder 패턴 사용 위해)
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
     annotationProcessor 'org.projectlombok:lombok'

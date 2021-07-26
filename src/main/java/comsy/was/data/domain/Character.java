@@ -1,4 +1,4 @@
-package comsy.was.domain;
+package comsy.was.data.domain;
 
 import lombok.*;
 

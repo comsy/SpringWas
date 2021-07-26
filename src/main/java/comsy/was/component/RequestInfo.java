@@ -44,11 +44,11 @@ public class RequestInfo {
     @PostConstruct
     public void init() {
         uuid = UUID.randomUUID().toString();
-        log.debug("[RequestInfo] request scope bean create uuid = " + uuid);
+        log.debug("[RequestInfo] request 스코프 빈 created. uuid = " + uuid);
     }
 
     @PreDestroy
     public void close() {
-        log.debug("[RequestInfo] request scope bean destroy uuid = " + uuid);
+        log.debug("[RequestInfo] request 스코프 빈 destroyed. uuid = " + uuid);
     }
 }

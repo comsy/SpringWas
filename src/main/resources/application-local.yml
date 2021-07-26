@@ -70,7 +70,7 @@ logging:
     web: INFO
     sql: INFO
     was: DEBUG
-    hikari: DEBUG
+    hikari: INFO
 
 sentry:
   dsn: https://3f0d7a32b63c4c0f8e12df4baecc4edf@o921467.ingest.sentry.io/5867907
@@ -100,7 +100,7 @@ logback:
   config.charset: UTF-8
   console.pattern: "%clr(%5p) %clr(%d{yy-MM-dd HH:mm:ss}){magenta}[%thread] [%clr(%logger{0}){cyan}:%line] - %msg%n"
   file:
-    path: /home/comsy/log/local/
+    path: log/local/
     name: file.log
     pattern: "%clr(%5p) %clr(%d{yy-MM-dd HH:mm:ss}){magenta}[%thread] [%clr(%logger{35}){cyan}:%line] - %msg%n"
     rolling_policy:
@@ -108,7 +108,7 @@ logback:
       max_file_size: 100MB
       max_history: 30
   access:
-    path: /home/comsy/log/local/
+    path: log/local/
     name: access.log
     pattern: "%msg%n"
     rolling_policy:
