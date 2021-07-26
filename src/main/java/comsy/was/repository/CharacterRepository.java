@@ -1,0 +1,24 @@
+package comsy.was.repository;
+
+import comsy.was.domain.Character;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface CharacterRepository extends JpaRepository<Character, Long> {
+
+    List<Character> findByGuid(Long guid);
+
+    @CacheEvict(value="characterList", key = "#entity.guid")
+    @Override
+    <S extends Character> S save(S entity);
+
+    @CacheEvict(value="characterList", key = "#entity.guid")
+    @Override
+    void delete(Character entity);
+
+
+}

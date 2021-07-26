@@ -1,0 +1,38 @@
+{
+  "properties": [
+    {
+      "name": "fluentd.defaults.host",
+      "type": "java.lang.String",
+      "description": "Fluentd host."
+    },
+    {
+      "name": "fluentd.defaults.port",
+      "type": "java.lang.Integer",
+      "description": "Fluentd port."
+    },
+    {
+      "name": "fluentd.defaults.tag",
+      "type": "java.lang.String",
+      "description": "Fluentd tag."
+    },
+    {
+      "name": "fluentd.dw.host",
+      "type": "java.lang.String",
+      "description": "Fluentd dw용 host."
+    },
+    {
+      "name": "fluentd.dw.port",
+      "type": "java.lang.Integer",
+      "description": "Fluentd dw용 port."
+    },
+    {
+      "name": "fluentd.dw.tag",
+      "type": "java.lang.String",
+      "description": "Fluentd dw용 tag."
+    },
+    {
+      "name": "logback.config.charset",
+      "type": "java.lang.String",
+      "description": "Description for logback.config.charset."
+    }
+  ] }
