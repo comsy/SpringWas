@@ -4,9 +4,9 @@ spring:
       on-profile: "local"
 
   datasource:
-    url: jdbc:mysql://sl-db-011:3306/ZCOMSY?characterEncoding=utf8&serverTimezone=Asia/Seoul
-    username: red_database
-    password: 123qwe
+#    url: jdbc:mysql://sl-db-011:3306/ZCOMSY?characterEncoding=utf8&serverTimezone=Asia/Seoul
+#    username: red_database
+#    password: 123qwe
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       max-lifetime: 30000 # 30000ms(30초, hikari min) 동안 사용안한 connection 풀에서 제거 - 컴투스기준 5초(wait_timeout) - 이거 높여야함.
@@ -19,18 +19,18 @@ spring:
         password: 123qwe
       slave:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        jdbc-url: jdbc:mysql://sl-db-011:3306/ZCOMSY?characterEncoding=utf8&serverTimezone=Asia/Seoul
+        jdbc-url: jdbc:mysql://sl-db-011:3306/ZCOMSY_SLAVE?characterEncoding=utf8&serverTimezone=Asia/Seoul
         username: red_database
         password: 123qwe
     log:
       master:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        jdbc-url: jdbc:mysql://sl-db-011:3306/ZCOMSY?characterEncoding=utf8&serverTimezone=Asia/Seoul
+        jdbc-url: jdbc:mysql://sl-db-011:3306/ZCOMSY_LOG?characterEncoding=utf8&serverTimezone=Asia/Seoul
         username: red_database
         password: 123qwe
       slave:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        jdbc-url: jdbc:mysql://sl-db-011:3306/ZCOMSY?characterEncoding=utf8&serverTimezone=Asia/Seoul
+        jdbc-url: jdbc:mysql://sl-db-011:3306/ZCOMSY_LOG?characterEncoding=utf8&serverTimezone=Asia/Seoul
         username: red_database
         password: 123qwe
 
@@ -70,7 +70,7 @@ logging:
     web: INFO
     sql: INFO
     was: DEBUG
-    hikari: INFO
+    hikari: INFO  # DEBUG 시 풀 내 connecton, close 정보 볼 수 있음.
 
 sentry:
   dsn: https://3f0d7a32b63c4c0f8e12df4baecc4edf@o921467.ingest.sentry.io/5867907
