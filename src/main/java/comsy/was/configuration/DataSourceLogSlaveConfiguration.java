@@ -45,7 +45,7 @@ public class DataSourceLogSlaveConfiguration {
         return builder.dataSource(logSlaveDataSource())
                 .properties(properties)
                 .packages("comsy.was.data.domain.log")  // 여러개 가능
-                .persistenceUnit("master")
+                .persistenceUnit("logSlaveEntityManager")
                 .build();
     }
 

@@ -48,7 +48,7 @@ public class DataSourceGameMasterConfiguration {
         return builder.dataSource(gameMasterDataSource())
                 .properties(properties)
                 .packages("comsy.was.data.domain")  // 여러개 가능
-                .persistenceUnit("master")
+                .persistenceUnit("gameMasterEntityManager")
                 .build();
     }
 

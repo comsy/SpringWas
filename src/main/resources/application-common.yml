@@ -14,6 +14,7 @@ spring:
   jpa:
     open-in-view: false
 
+# 나중에  common 으로 이동 해야됨.
 decorator.datasource.p6spy:
   enable-logging: true
   multiline: true

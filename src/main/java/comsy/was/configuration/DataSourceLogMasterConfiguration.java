@@ -45,7 +45,7 @@ public class DataSourceLogMasterConfiguration {
         return builder.dataSource(logMasterDataSource())
                 .properties(properties)
                 .packages("comsy.was.data.domain.log")  // 여러개 가능
-                .persistenceUnit("master")
+                .persistenceUnit("logMasterEntityManager")
                 .build();
     }
 

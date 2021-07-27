@@ -12,11 +12,11 @@ public interface CharacterSlaveRepository extends JpaRepository<Character, Long>
 
     List<Character> findByGuid(Long guid);
 
-    @CacheEvict(value="characterList", key = "#entity.guid")
+    @CacheEvict(value="characterSlaveList", key = "#entity.guid", cacheManager = "redisCacheManager")
     @Override
     <S extends Character> S save(S entity);
 
-    @CacheEvict(value="characterList", key = "#entity.guid")
+    @CacheEvict(value="characterSlaveList", key = "#entity.guid", cacheManager = "redisCacheManager")
     @Override
     void delete(Character entity);
 

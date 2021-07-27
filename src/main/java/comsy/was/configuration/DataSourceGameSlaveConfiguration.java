@@ -45,7 +45,7 @@ public class DataSourceGameSlaveConfiguration {
         return builder.dataSource(gameSlaveDataSource())
                 .properties(properties)
                 .packages("comsy.was.data.domain")  // 여러개 가능
-                .persistenceUnit("master")
+                .persistenceUnit("gameSlaveEntityManager")
                 .build();
     }
 

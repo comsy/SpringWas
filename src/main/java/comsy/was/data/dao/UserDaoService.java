@@ -23,7 +23,7 @@ public class UserDaoService {
     private final UserRepository userRepository;
 
     //== CQRS : QUERY ==//
-    @Cacheable(value="user", key = "#guid")
+    @Cacheable(value="user", key = "#guid", cacheManager = "redisCacheManager")
     public List<UserDto> getDtoList(Long guid){
         List<User> dtoList = userRepository.findByGuid(guid);
 
@@ -53,7 +53,7 @@ public class UserDaoService {
 
 
     //== Cache Only ==//
-    @CacheEvict(value="characterList", key = "#guid")
+    @CacheEvict(value="characterList", key = "#guid", cacheManager = "redisCacheManager")
     public void deleteCache(Long guid){
     }
 }

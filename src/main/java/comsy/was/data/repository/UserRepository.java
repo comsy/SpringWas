@@ -13,10 +13,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByGuid(Long guid);
 
     @Override
-    @CacheEvict(value="user", key = "#entity.guid")
+    @CacheEvict(value="user", key = "#entity.guid", cacheManager = "redisCacheManager")
     <S extends User> S save(S entity);
 
     @Override
-    @CacheEvict(value="user", key = "#entity.guid")
+    @CacheEvict(value="user", key = "#entity.guid", cacheManager = "redisCacheManager")
     void delete(User entity);
 }
