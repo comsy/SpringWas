@@ -9,6 +9,9 @@ import comsy.was.data.redis.entity.CharacterInfo;
 import comsy.was.service.CharacterService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -21,6 +24,7 @@ import java.util.List;
 public class CharacterController {
 
     private final CharacterService characterService;
+    private final RedisTemplate<String, Object> redisDataTemplate;
 
     @PostMapping("/character/findList")
     public CharacterFindApi.Response findCharacterList(@RequestBody @Valid CharacterFindApi.Request request){
@@ -81,6 +85,19 @@ public class CharacterController {
         log.debug("id : " + id);
 
         CharacterInfo characterInfo = characterService.testCharacterRedis(guid, id);
+
+
+        // TEST - String
+        ValueOperations<String, Object> stringObjectValueOperations = redisDataTemplate.opsForValue();
+        stringObjectValueOperations.set("comsyWas.string", "test");
+        Object comsyWas = stringObjectValueOperations.get("comsyWas");
+        log.debug("comsyWas.string : " + comsyWas);
+
+        // TEST - String
+        ZSetOperations<String, Object> stringObjectZSetOperations = redisDataTemplate.opsForZSet();
+        stringObjectZSetOperations.add("comsyWas.zset", "test1", 9);
+        Long rank = stringObjectZSetOperations.rank("comsyWas.zset", "test");
+        log.debug("comsyWas.zset rank : " + rank);
 
         return new CharacterRedisTestApi.Response(200, "", characterInfo);
     }

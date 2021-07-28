@@ -57,14 +57,13 @@ spring:
         default_batch_fetch_size: 100
 
   cache:
-    type: redis
     redis:
-      time-to-live:
+      time-to-live: "10m"
 
   # redis db 사용 안함 - 클러스터 사용 시 db 사용 못함
   redis:
-#    host: sl-redis-01
-#    port: 6379
+    host: sl-redis-01
+    port: 6379
     cache:
       host: sl-redis-01
       port: 6379

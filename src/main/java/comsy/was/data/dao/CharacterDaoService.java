@@ -24,7 +24,7 @@ public class CharacterDaoService {
 
 
     //== CQRS : QUERY ==//
-    @Cacheable(value="characterList", key = "#guid", cacheManager = "redisCacheManager")
+    @Cacheable(value="characterList", key = "#guid", cacheManager = "redisCacheManager7Day")
     public List<CharacterDto> getDtoList(Long guid){
         List<Character> dtoList = characterRepository.findByGuid(guid);
 
@@ -56,7 +56,7 @@ public class CharacterDaoService {
 
 
     //== Cache Only ==//
-    @CacheEvict(value="characterList", key = "#guid", cacheManager = "redisCacheManager")
+    @CacheEvict(value="characterList", key = "#guid", cacheManager = "redisCacheManager7Day")
     public void deleteCache(Long guid){
     }
 }
