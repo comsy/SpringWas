@@ -15,7 +15,7 @@ public class Character {
 
     @Id
     @GeneratedValue
-    @Column(name = "dbKey")
+    @Column(name = "db_key")
     private Long id;
 
     @Column(name = "guid")

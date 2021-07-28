@@ -5,6 +5,8 @@ import comsy.was.configuration.FluentdConfiguration;
 import comsy.was.data.dao.CharacterDaoService;
 import comsy.was.data.domain.Character;
 import comsy.was.data.dto.CharacterDto;
+import comsy.was.data.redis.entity.CharacterInfo;
+import comsy.was.data.redis.repository.CharacterInfoRepository;
 import comsy.was.exception.BusinessException;
 import comsy.was.exception.ErrorCode;
 import lombok.*;
@@ -27,6 +29,7 @@ import java.util.Optional;
 public class CharacterService {
 
     private final CharacterDaoService characterDaoService;
+    private final CharacterInfoRepository characterInfoRepository;
     private final Fluency fluency;
 
     public CharacterDto findOne(Long guid, Long id) throws IOException {
@@ -106,5 +109,31 @@ public class CharacterService {
     public static class ResultAddCharacterExp {
         private List<CharacterDto> characterList;
         private Boolean isLevelUp;
+    }
+
+    @Transactional  // write 가 있는 경우
+    public CharacterInfo testCharacterRedis(Long guid, Long id){
+        Optional<CharacterDto> optCharacter = characterDaoService.getDto(guid, id);
+        CharacterDto characterDto = optCharacter.orElseThrow(()->new BusinessException(ErrorCode.CHARACTER_NOT_EXIST, "캐릭터가 없어요."));
+        Character character = characterDto.toEntity();
+
+        Optional<CharacterInfo> optCharacterInfo = characterInfoRepository.findById(character.getId());
+
+        CharacterInfo characterInfo;
+        if( optCharacterInfo.isEmpty() ){
+            characterInfo = CharacterInfo.builder()
+                    .id(character.getId())
+                    .name("캐릭터"+character.getId())
+                    .build();
+        }
+        else{
+            characterInfo = optCharacterInfo.get();
+
+            characterInfo.changeName("변경캐릭터"+character.getId());
+        }
+
+        characterInfoRepository.save(characterInfo);
+
+        return characterInfo;
     }
 }

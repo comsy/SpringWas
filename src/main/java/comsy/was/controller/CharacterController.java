@@ -3,7 +3,9 @@ package comsy.was.controller;
 import comsy.was.api.CharacterAddExpApi;
 import comsy.was.api.CharacterFindApi;
 import comsy.was.api.CharacterFindOneApi;
+import comsy.was.api.CharacterRedisTestApi;
 import comsy.was.data.dto.CharacterDto;
+import comsy.was.data.redis.entity.CharacterInfo;
 import comsy.was.service.CharacterService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -68,5 +70,18 @@ public class CharacterController {
         CharacterService.ResultAddCharacterExp resultAddCharacterExp = characterService.addCharacterExp(guid, id, addExp);
 
         return new CharacterAddExpApi.Response(200, "", resultAddCharacterExp.getCharacterList(), resultAddCharacterExp.getIsLevelUp());
+    }
+
+    @PostMapping("/character/redisTest")
+    public CharacterRedisTestApi.Response cacheTest(@RequestBody @Valid CharacterRedisTestApi.Request request){
+
+        Long guid = request.getGuid();
+        Long id = request.getId();
+        log.debug("guid : " + guid);
+        log.debug("id : " + id);
+
+        CharacterInfo characterInfo = characterService.testCharacterRedis(guid, id);
+
+        return new CharacterRedisTestApi.Response(200, "", characterInfo);
     }
 }

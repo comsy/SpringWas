@@ -18,12 +18,13 @@ public enum ErrorCode {
     //== BUSINESS ERROR (1000 ~ ) ==//
 
     // Member
-    USER_NOT_EXIST(         1000,   "User is not exist."),
-    LOGIN_INPUT_INVALID(    1001,   "Login input is invalid"),
+    USER_NOT_EXIST(             1000,   "User is not exist."),
+    LOGIN_INPUT_INVALID(        1001,   "Login input is invalid"),
 
     // CHARACTER
-    CHARACTER_NOT_EXIST(    2001,   "Character is not exist."),
-    CHARACTER_INVALID(      2002,   "Coupon was already expired")
+    CHARACTER_NOT_EXIST(        2001,   "Character is not exist."),
+    CHARACTER_INVALID(          2002,   "Coupon was already expired"),
+    CHARACTER_INFO_NOT_EXIST(   2001,   "Character redis info is not exist."),
 
     ;
 
