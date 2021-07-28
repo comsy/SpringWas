@@ -1,17 +1,19 @@
 package comsy.was.service;
 
+import comsy.was.api.GenericApi;
 import comsy.was.configuration.FluentdConfiguration;
 import comsy.was.data.dao.CharacterDaoService;
 import comsy.was.data.domain.Character;
 import comsy.was.data.dto.CharacterDto;
 import comsy.was.exception.BusinessException;
 import comsy.was.exception.ErrorCode;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.komamitsu.fluency.Fluency;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -79,5 +81,30 @@ public class CharacterService {
         Long id = characterDaoService.saveEntity(newCharacter);
 
         return characterDaoService.getDtoList(guid);
+    }
+
+    @Transactional  // write 가 있는 경우
+    public ResultAddCharacterExp addCharacterExp(Long guid, Long id, int addExp){
+        Optional<CharacterDto> optCharacter = characterDaoService.getDto(guid, id);
+        CharacterDto characterDto = optCharacter.orElseThrow(()->new BusinessException(ErrorCode.CHARACTER_NOT_EXIST, "캐릭터가 없어요."));
+        Character character = characterDto.toEntity();
+
+        // DDD
+        boolean isLevelUp = character.addExpAndLevelUp(addExp);
+
+        characterDaoService.saveEntity(character);
+
+        return ResultAddCharacterExp.builder()
+                .characterList(characterDaoService.getDtoList(guid))
+                .isLevelUp(isLevelUp).build();
+    }
+
+    @Getter
+    @NoArgsConstructor(access = AccessLevel.PROTECTED)
+    @AllArgsConstructor(access = AccessLevel.PROTECTED)
+    @Builder
+    public static class ResultAddCharacterExp {
+        private List<CharacterDto> characterList;
+        private Boolean isLevelUp;
     }
 }

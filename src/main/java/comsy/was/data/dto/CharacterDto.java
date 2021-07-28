@@ -26,6 +26,13 @@ public class CharacterDto implements Serializable {
     @JsonProperty("id")
     private Long characterId;
 
+    @JsonProperty("level")
+    private int level;
+
+    @JsonProperty("exp")
+    private int exp;
+
+
 
     public static CharacterDto from(Character entity){
         return CharacterMapper.INSTANCE.toDto(entity);

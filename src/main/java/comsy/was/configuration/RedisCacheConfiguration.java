@@ -7,20 +7,16 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
-@EnableRedisRepositories(
-        basePackages = "comsy.was.data.repositoryRedis"
-)
-public class RedisConfiguration {
+public class RedisCacheConfiguration {
 
-    @Value("${spring.redis.port}")
+    @Value("${spring.redis.cache.port}")
     private int port;
 
-    @Value("${spring.redis.host}")
+    @Value("${spring.redis.cache.host}")
     private String host;
 
     @Bean
